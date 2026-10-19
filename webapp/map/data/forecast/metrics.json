@@ -1,0 +1,44 @@
+{
+  "train_window": [
+    "2010-01-01 00:00:00",
+    "2016-09-17 23:00:00"
+  ],
+  "test_window": [
+    "2016-09-18 00:00:00",
+    "2017-09-17 23:00:00"
+  ],
+  "time_split": {
+    "seasonal profile (last 2 years)": {
+      "poisson_deviance": 0.8288,
+      "mae": 0.4655,
+      "rmse": 0.6932,
+      "citywide_hourly_mae": 3.015
+    },
+    "gradient boosting: calendar": {
+      "poisson_deviance": 0.82,
+      "mae": 0.4724,
+      "rmse": 0.692,
+      "citywide_hourly_mae": 2.941
+    },
+    "gradient boosting: calendar + weather": {
+      "poisson_deviance": 0.8168,
+      "mae": 0.4716,
+      "rmse": 0.6911,
+      "citywide_hourly_mae": 2.926
+    },
+    "gradient boosting: calendar + census": {
+      "poisson_deviance": 0.8179,
+      "mae": 0.4729,
+      "rmse": 0.6907,
+      "citywide_hourly_mae": 2.915
+    }
+  },
+  "random_split_calendar_gbm": {
+    "poisson_deviance": 0.7441,
+    "mae": 0.4158,
+    "rmse": 0.62,
+    "citywide_hourly_mae": 1.091
+  },
+  "production_model": "gradient boosting: calendar",
+  "trained_through": "2017-10-04 23:00:00"
+}

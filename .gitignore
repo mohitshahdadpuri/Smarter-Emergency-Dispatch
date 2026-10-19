@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*venv/
+
+# Django / Celery runtime state
+webapp/db.sqlite3
+webapp/static/
+celerybeat-schedule*
+*.log
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
