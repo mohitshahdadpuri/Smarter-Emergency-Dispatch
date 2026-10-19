@@ -1,0 +1,124 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='//fonts.googleapis.com/css?family=Raleway&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block sb_admin_description %}{% endblock sb_admin_description %}">
+    <meta name="author" content="{% block sb_admin_author %}{% endblock %}">
+    <title>{% block title %}SmartDispatch {% endblock %}</title>
+
+    <!-- Bootstrap Core CSS -->
+    {% block sb_admin_bootstrap_css %}<link href="{% static "css/bootstrap.min.css"%}" rel="stylesheet">{% endblock sb_admin_bootstrap_css %}
+
+    <!-- Custom CSS -->
+    {% block sb_admin_css %}<link href="{% static "css/sb-admin.css"%}" rel="stylesheet">{% endblock sb_admin_css %}
+
+    <!-- Custom Fonts -->
+    {% block sb_admin_fonts_css %}<link href="{% static "font-awesome/css/font-awesome.min.css"%}" rel="stylesheet" type="text/css">{% endblock sb_admin_fonts_css %}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    {% block sb_admin_custom_css %}{% endblock sb_admin_custom_css %}
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% block sb_admin_header_url %}{% url "sb_admin_main" %}{% endblock sb_admin_header_url %}">{% block sb_admin_header %}SmartDispatch{% endblock sb_admin_header %}</a>
+            </div>
+            <!-- Top Menu Items -->
+            {% block sb_admin_sidebar %}<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li {% if nav_active == "map" %}class="active"{% endif %}>
+                        <a href="{% url "sb_admin_map" %}"><i class="fa fa-fw fa-map"></i> Map</a>
+                    </li>
+                    <li {% if nav_active == "charts" %}class="active"{% endif %}>
+                        <a href="{% url "sb_admin_charts" %}"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                    </li>
+                    <li {% if nav_active == "about" %}class="active"{% endif %}>
+                        <a href="{% url "sb_admin_about" %}"><i class="fa fa-fw fa-info-circle"></i> About</a>
+                    </li>
+
+                </ul>
+            </div>{% endblock sb_admin_sidebar %}
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb">
+                            <li>
+                                {% block sb_admin_breadcrumb %}<i class="fa fa-dashboard"></i>  <a href="/">SmartDispatch</a>{% endblock sb_admin_breadcrumb %}
+                            </li>
+                            {% block sb_admin_breadcrumb_active %}
+                            <li class="active">
+                                 <i class="fa fa-globe"></i> Start
+                            </li>
+                            {% endblock sb_admin_breadcrumb_active %}
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+{% if messages %}
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+<ul class="messages">
+    {% for message in messages %}
+    <div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class="fa fa-info-circle"></i>  {{ message }}
+    </div>
+    <!--<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>-->
+    {% endfor %}
+</ul>
+                    </div>
+                </div>
+{% endif %}
+                {% block sb_admin_content %}
+{% endblock sb_admin_content %}
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="{% static "js/jquery.js"%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "js/bootstrap.min.js"%}"></script>
+
+    {% block sb_admin_custom_js %}{% endblock sb_admin_custom_js %}
+
+</body>
+
+</html>

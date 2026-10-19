@@ -1,0 +1,17 @@
+# Web app (webapp/) and forecast training (models/train_forecast.py).
+# Python 3.11+. scikit-learn is pinned because the committed forecast model
+# is a pickle; retrain with models/train_forecast.py after upgrading it.
+Django==5.2.7
+celery==5.6.3
+pandas==3.0.6
+numpy==2.5.4
+scipy==1.18.1
+scikit-learn==1.9.1
+joblib==1.6.0
+geopandas==1.2.0
+shapely==2.2.0
+pyogrio==0.13.0
+pyproj==3.8.0
+folium==0.20.0
+branca==0.8.2
+googlemaps==4.10.0
